@@ -23,7 +23,7 @@ const registry = new vsctm.Registry({
         if (scopeName === 'source.js') {
             // https://github.com/textmate/javascript.tmbundle/blob/master/Syntaxes/JavaScript.plist
             
-            const resp = await fetch('https://raw.githubusercontent.com/textmate/javascript.tmbundle/master/Syntaxes/JavaScript.plist');
+            const resp = await fetch('JavaScript.plist');
             
             const data = await resp.text();
             
