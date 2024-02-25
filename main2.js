@@ -23,7 +23,11 @@ const registry = new vsctm.Registry({
         if (scopeName === 'source.js') {
             // https://github.com/textmate/javascript.tmbundle/blob/master/Syntaxes/JavaScript.plist
             
-            return fetch('JavaScript.plist').then((resp) => { resp.text().then((data) => { vsctm.parseRawGrammar(data) })});
+            const resp = await fetch('JavaScript.plist');
+            
+            const data = await resp.text();
+            
+            return vsctm.parseRawGrammar(data);
         }
         console.log(`Unknown scope name: ${scopeName}`);
         return null;
