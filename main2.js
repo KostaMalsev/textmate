@@ -1,6 +1,6 @@
 import vsctm from 'https://esm.sh/vscode-textmate';
 import oniguruma from 'https://esm.sh/vscode-oniguruma';
-import { Buffer } from 'https://esm.sh/buffer-browserify';
+import Buffer from 'https://esm.sh/buffer';
 
 async function getBuffer(url) {
   
