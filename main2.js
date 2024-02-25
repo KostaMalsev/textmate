@@ -1,12 +1,12 @@
 import vsctm from 'https://esm.sh/vscode-textmate';
 import oniguruma from 'https://esm.sh/vscode-oniguruma';
-import bops from 'https://esm.sh/bops@1.0.1';
+import Buffer from 'https://esm.sh/buffer-browserify';
 
 async function getBuffer(url) {
   
   const str = await (await fetch(url)).text();
   
-  return bops.from(str);
+  return Buffer.from(str, 'utf8');
   
 }
 
