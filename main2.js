@@ -1,14 +1,18 @@
 import vsctm from 'https://esm.sh/vscode-textmate';
 import oniguruma from 'https://esm.sh/vscode-oniguruma';
+import bops from 'https://esm.sh/bops@1.0.1';
 
 async function getBuffer(url) {
   
-  return await (await (await fetch(url)).blob()).arrayBuffer();
+  const str = await (await fetch(url)).text();
+  
+  return bops.from(str);
   
 }
 
 // https://unpkg.com/vscode-oniguruma@1.5.1/release/onig.wasm
 const wasmBin = await getBuffer('https://unpkg.com/vscode-oniguruma@1.5.1/release/onig.wasm');
+
 const vscodeOnigurumaLib = oniguruma.loadWASM(wasmBin).then(() => {
     return {
         createOnigScanner(patterns) { return new oniguruma.OnigScanner(patterns); },
