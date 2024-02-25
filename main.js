@@ -1,8 +1,14 @@
+
+import TextMate from "https://esm.sh/vscode-textmate";
+
+console.log(TextMate);
+
 // Get the editor element
 const editor = document.getElementById("editor");
 
 // Add event listener for keyup event
 editor.addEventListener("keyup", (event) => {
+  
   // Get the current text of the editor
   const text = editor.textContent;
 
@@ -23,4 +29,5 @@ editor.addEventListener("keyup", (event) => {
     span.textContent = token.value;
     editor.appendChild(span);
   });
+  
 });
